@@ -4,6 +4,9 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+container:
+  image: f0r3v3ran00b/sfdx:1.0
+
 steps:
   - script: echo Hello from Azure Pipelines!
     displayName: 'Run a one-line script'
