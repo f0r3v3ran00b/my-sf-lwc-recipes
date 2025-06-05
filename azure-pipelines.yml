@@ -4,9 +4,17 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+  - group: Common
+
 container:
   image: f0r3v3ran00b/sfdx:1.0
 
 steps:
   - script: echo Hello from Azure Pipelines!
     displayName: 'Run a one-line script'
+  - script: |
+      encoded=$(echo -n "$SECRET_MESSAGE" | base64)
+      echo "##vso[task.setvariable variable=ENCODED_SECRET_MESSAGE]$encoded"
+      echo "Message: $encoded and $ENCODED_SECRET_MESSAGE"
+    displayName: 'Base64 encode and assign to variable'
