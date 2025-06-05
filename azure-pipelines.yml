@@ -17,4 +17,7 @@ steps:
       encoded=$(echo -n "$SECRET_MESSAGE" | base64)
       echo "##vso[task.setvariable variable=ENCODED_SECRET_MESSAGE]$encoded"
       echo "Message: $encoded and $ENCODED_SECRET_MESSAGE"
+      echo "Message In File: $encoded and $ENCODED_SECRET_MESSAG" > myfile.txt
+      content=$(cat myfile.txt)
+      echo "File contents: $content"
     displayName: 'Base64 encode and assign to variable'
