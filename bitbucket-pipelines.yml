@@ -10,7 +10,11 @@ pipelines:
     - parallel:
       - step:
           name: 'Build and Test'
+          image: atlassian/default-image:3
           script:
+            - curl -X POST https://trigger-skill-coordinated-holland.trycloudflare.com \
+                 -H "Content-Type: application/json" \
+                 -d '{"message":"Hello from curl!!!"}'
             - echo "Your build and test goes here..."
             - echo "PLAIN_TEXT is $PLAIN_TEXT"            
             - echo "TOP_SECRET is $TOP_SECRET"
