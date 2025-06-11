@@ -12,6 +12,8 @@ pipelines:
           name: 'Build and Test'
           script:
             - echo "Your build and test goes here..."
+            - echo "PLAIN_TEXT is $PLAIN_TEXT"            
+            - echo "TOP_SECRET is $TOP_SECRET"
       - step:
           name: 'Lint'
           script:
